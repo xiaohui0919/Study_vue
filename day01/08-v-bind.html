@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue1.js"></script>
+</head>
+<body>
+<div id="app">
+    <a href="#" v-bind:title="msg">这是个a标签</a>
+    <a href="#" :title="msg">这是个a标签</a>
+    <a href="#" :title="msg" :dsgerytry="msg">这是个a标签</a>
+</div>
+</body>
+<script>
+    var vm=new Vue({
+        el:'#app',
+        data:{
+           msg:'这是title部分的内容'
+        }
+    })
+</script>
+</html>

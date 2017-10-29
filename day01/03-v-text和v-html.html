@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue1.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{name}}
+        <span v-text="name"></span>
+        <span v-text="title"></span>
+        <span v-html="title"></span>
+    </div>
+</body>
+
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            name:'小张',
+            title:'<h1>这是一个title</h1>'
+        },
+        methods:{
+
+        }
+    })
+</script>
+</html>

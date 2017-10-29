@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue1.js"></script>
+</head>
+<body>
+<div id="app">
+    <span v-if="isshow">{{ name }}</span>
+    <span v-show="isshow">{{ name }}</span>
+
+    <button @click="btnBeClicked">按钮</button>
+</div>
+</body>
+<script>
+    var vm=new Vue({
+        el:'#app',
+        data:{
+            name:'这是个name内容',
+            isshow:false
+        },
+        methods:{
+            btnBeClicked:function () {
+                this.isshow=!this.isshow
+            }
+        }
+    })
+</script>
+</html>

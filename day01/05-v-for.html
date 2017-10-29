@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue1.js"></script>
+    <!--<script src="vue2.js"></script>-->
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <!--vue框架1.0的时候，索引值在前面，item在后面-->
+            <li v-for="(index,item) in list">
+                {{ item }}------{{index}}
+            </li>
+            <li v-for="(index,item) in lists" track-by="$index">
+                {{ item }}------{{index}}
+            </li>
+            <!--vue框架2.0的时候，索引值在后面，item在前面-->
+            <li v-for="(item,index) in list">
+                {{ item }}------{{index}}
+            </li>
+
+            <li v-for="(item,key,index) in user">
+                {{item}}----{{key}}----{{index}}
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    var vm=new Vue({
+        el:'#app',
+        data:{
+            lists:[1,2,1],
+            list:['狼厂','鸟厂','鹅厂','马厂','猫厂','狗厂'],
+            user:{name:'张三',age:23}
+        }
+    })
+</script>
+</html>

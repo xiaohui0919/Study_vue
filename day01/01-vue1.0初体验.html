@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue1.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{ title }}
+        {{ title=='wo'?true:false }}
+
+        <!--{{ if(title=='wo'){true} }}-->
+        {{ if1(title)}}
+    </div>
+</body>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            title:'很高兴认识你'
+        },
+        methods:{
+            if1:function (title) {
+                return title=='wo'
+            }
+        }
+    })
+</script>
+</html>
