@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../vue1.js"></script>
+</head>
+<body>
+<div id="app">
+    <login></login>
+</div>
+</body>
+<script>
+    var vm=new Vue({
+        el:'#app',
+        data:{
+            name:'hello'
+        },
+        components:{
+            'login':{
+                template:'这是个login组件---<sub @send="getData"></sub>',
+                methods:{
+                    getData:function (id) {
+                        alert(id)
+                    }
+                },
+                components:{
+                    'sub':{
+                        template:'这是个sub组件---<button @click="sendData">点击以后子组件向父组件传值</button>',
+                        data:function () {
+                           return {
+                               id:12
+                           }
+                        },
+                        methods:{
+                            sendData:function () {
+                                this.$emit('send',this.id)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    })
+</script>
+</html>

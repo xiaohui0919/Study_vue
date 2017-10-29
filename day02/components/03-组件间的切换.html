@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../vue1.js"></script>
+</head>
+<body>
+<div id="app">
+    <a href="#" @click="cname='register'">登录</a>
+    <a href="#" @click="cname='login'">注册</a>
+    <!--:is 是vue1.0中组件切换的方式-->
+    <component :is="cname"></component>
+</div>
+</body>
+<script>
+    Vue.component('register',{
+        template:'这是register组件'
+    })
+    Vue.component('login',{
+        template:'这是login组件'
+    })
+    var vm=new Vue({
+        el:'#app',
+        data:{
+            cname:'login'
+        }
+    })
+</script>
+</html>

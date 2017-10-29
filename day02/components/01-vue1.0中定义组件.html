@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../vue1.js"></script>
+</head>
+<body>
+<div id="app">
+    <my-component></my-component>
+    <br>
+    <private-component></private-component>
+    <br>
+    <my-component/>
+</div>
+</body>
+<script>
+    Vue.component('my-component',{
+        template:'<h1>这是第一个组件</h1>'
+    })
+    var vm=new Vue({
+        el:'#app',
+        data:{
+
+        },
+        components:{
+            'private-component':{
+                template:'<h2>这是私有组件</h2>'
+            }
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../vue1.js"></script>
+</head>
+<body>
+<div id="app">
+    <button @click="getdom">获取div元素</button>
+    <div v-el:mydom>这是一个div</div>
+    <button @click="getcom">获取组件</button>
+    <sub v-ref:mysub></sub>
+</div>
+</body>
+<script>
+
+    var vm=new Vue({
+        el:'#app',
+        data:{
+
+        },
+        methods:{
+            getdom:function () {
+                console.log(this.$els.mydom);
+            },
+            getcom:function () {
+                console.log(this.$refs.mysub);
+            }
+        },
+        components:{
+            'sub':{
+                template:'sub组件'
+            }
+
+        }
+    })
+</script>
+</html>

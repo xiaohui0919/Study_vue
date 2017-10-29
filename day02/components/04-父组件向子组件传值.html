@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../vue1.js"></script>
+</head>
+<body>
+<div id="app">
+    <sub :id="name"></sub>
+</div>
+</body>
+<script>
+    var vm=new Vue({
+        el:'#app',
+        data:{
+            name:'hello'
+        },
+        components:{
+            'sub':{
+                template:'这是子组件部分----{{id}}',
+                props:['id']
+            }
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../vue1.js"></script>
+</head>
+<body>
+<div id="app">
+    <login></login>
+</div>
+</body>
+<script>
+    var vm=new Vue({
+        el:'#app',
+        data:{
+
+        },
+        components:{
+            'login':{
+                template:'这是login组件<register></register>',
+                components:{
+                    'register':{
+                        template:'这是register组件内容'
+                    }
+                }
+            }
+        }
+    })
+</script>
+</html>
