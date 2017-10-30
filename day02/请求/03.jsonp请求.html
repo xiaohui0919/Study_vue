@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../vue1.js"></script>
+    <script src="../vue-resource121.js"></script>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="t1" @keyup="jsonpData" placeholder="请输入内容">
+    <ul>
+        <li v-for="item in myData">
+            {{item}}
+        </li>
+    </ul>
+</div>
+</body>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            myData: [],
+            t1: ''
+        },
+        methods: {
+            jsonpData: function () {
+                this.$http.jsonp("https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su",
+                    {
+                        params: {
+                            wd: this.t1,
+                        },
+                        jsonp: 'cb'
+                    }
+                ).then(
+                    function (res) {
+                        this.myData=JSON.parse(res.bodyText).s
+                    }
+                )
+            }
+        }
+    })
+</script>
+</html>

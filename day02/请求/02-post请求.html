@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../vue1.js"></script>
+    <script src="../vue-resource121.js"></script>
+</head>
+<body>
+<div id="app">
+    <button @click="postData">post请求</button>
+</div>
+</body>
+<script>
+    var vm=new Vue({
+        el:'#app',
+        methods:{
+            postData:function () {
+                // 发送请求
+                var url='';
+                //emulateJSON:true  必须要写
+                this.$http.post(url,{content:'内容'},{emulateJSON:true}).then(
+                    function (response) {
+                        console.log('success');
+                    }
+                )
+            }
+        }
+    })
+</script>
+</html>

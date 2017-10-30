@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../vue1.js"></script>
+    <link rel="stylesheet" href="../animate.css">
+</head>
+<body>
+<div id="app">
+    <button @click="change">控制动画的显示与隐藏</button>
+    <div v-if="isshow" class="animated" transition="show">这是个div</div>
+</div>
+</body>
+<script>
+    var vm=new Vue({
+        el:'#app',
+        data:{
+            isshow:false
+        },
+        methods:{
+            change:function () {
+                this.isshow=!this.isshow
+            }
+        },
+        transitions:{
+            'show':{
+                'enterClass':'fadeInRight',
+                'leaveClass':'fadeOutRight'
+            }
+        }
+    })
+</script>
+</html>
