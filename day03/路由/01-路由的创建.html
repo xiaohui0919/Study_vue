@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../vue2.js"></script>
+    <script src="../vue-router231.js"></script>
+</head>
+<body>
+<div id="app">
+    <router-link to="/login">login组件</router-link>
+    <router-link to="/register">register组件</router-link>
+    <router-view></router-view>
+</div>
+</body>
+<script>
+    // 创建路由
+    var login = Vue.extend({
+        template: '<div>login组件</div>'
+    })
+    var register = Vue.extend({
+        template: '<div>register组件</div>'
+    })
+    // 实例化vuerouter
+    var router = new VueRouter({
+        routes: [
+            {name:'login名称',path: '/login', component: login},
+            {name:'register名称',path: '/register', component: register}
+        ]
+    })
+
+    var vm = new Vue({
+        el: '#app',
+        router:router
+    })
+</script>
+</html>

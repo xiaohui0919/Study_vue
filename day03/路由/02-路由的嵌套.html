@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../vue2.js"></script>
+    <script src="../vue-router231.js"></script>
+</head>
+<body>
+<div id="app">
+    <router-link to="/account/login">login组件</router-link>
+    <router-link to="/account/register">register组件</router-link>
+    <router-view></router-view>
+</div>
+</body>
+<script>
+    var account=Vue.extend({
+        template:'<div>account组件<router-view></router-view></div>'
+    })
+    var login=Vue.extend({
+        template:'<div>login组件</div>'
+    })
+    var register=Vue.extend({
+        template:'<div>register组件</div>'
+    })
+    var router=new VueRouter({
+        routes:[
+            {path:'/account',component:account,children:[
+                {path:'login',component:login},
+                {path:'register',component:register}
+            ]}
+        ]
+    })
+    var vm=new Vue({
+        el:'#app',
+        router
+    })
+</script>
+
+</html>
